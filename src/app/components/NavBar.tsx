@@ -29,7 +29,12 @@ export default function NavBar({ mode }: NavBarProps) {
           <Typography variant="h3" fontWeight={700} color="#37fffb">
             EA
           </Typography>
-          <Typography variant="body1">erickanero@gmail.com</Typography>
+          <Typography
+            variant="body1"
+            sx={{ display: { xs: "none", sm: "block" } }}
+          >
+            erickanero@gmail.com
+          </Typography>
         </Box>
 
         {/* <IconButton onClick={toggleTheme} color="inherit">

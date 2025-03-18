@@ -101,8 +101,8 @@ export default function Projects() {
                     borderRadius: "10px",
                   }}
                 />
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography variant="h5" gutterBottom>
+                <CardContent sx={{ flexGrow: 1, padding: 0 }}>
+                  <Typography variant="h5" gutterBottom pt={2}>
                     {project.title}
                   </Typography>
                   <Typography variant="body2" color="textSecondary">

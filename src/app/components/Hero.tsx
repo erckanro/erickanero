@@ -86,6 +86,18 @@ export default function Hero() {
         alignItems="center"
         justifyContent="center"
       >
+        {/* <Box>
+          <img
+            alt="Erick Anero"
+            src="/assets/EA.png"
+            style={{
+              // width: "100%",
+              height: "100%",
+              filter: "brightness(0.8)",
+            }}
+          />
+        </Box> */}
+
         <Grid
           item
           xs={12}
@@ -105,7 +117,7 @@ export default function Hero() {
               alt="Erick Anero"
               src="/assets/EA.png"
               style={{
-                width: "100%",
+                // width: "100%",
                 height: "100%",
                 filter: "brightness(0.8)",
               }}

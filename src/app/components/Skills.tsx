@@ -109,9 +109,7 @@ export default function Skills() {
               height={90}
             />
 
-            <Typography variant="h6" mt={0}>
-              {skill.name}
-            </Typography>
+            <Typography>{skill.name}</Typography>
           </Box>
         ))}
       </Box>
