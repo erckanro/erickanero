@@ -13,12 +13,12 @@ const HeroContainer = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  height: "900px",
+  height: "100vh",
   textAlign: "left",
   overflow: "visible",
   background: `${theme.palette.hero.primary}`,
   color: theme.palette.mode === "dark" ? "#fff" : "#333",
-  padding: "0 16px", // Add padding for smaller screens
+  padding: "0 16px",
 }));
 
 const FirefliesContainer = styled("div")({
@@ -34,16 +34,9 @@ interface StatCardProps {
   label: string;
 }
 
-const StatCard: React.FC<StatCardProps> = ({ value, label }) => (
-  <Box
-    sx={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      textAlign: "center",
-    }}
-  >
-    <Typography variant="h4" fontWeight={700}>
+const StatCard = ({ value, label }: StatCardProps) => (
+  <Box sx={{ display: "flex", maxWidth: 100, gap: 2, alignItems: "center" }}>
+    <Typography variant="h2" fontWeight={700}>
       {value}
     </Typography>
     <Typography>{label}</Typography>
@@ -101,7 +94,7 @@ export default function Hero() {
         >
           <Box
             sx={{
-              width: { xs: 250, sm: 350, md: 400 },
+              height: { xs: 250, sm: 350, md: 400 },
               borderRadius: "50px",
               padding: "30px 30px 0 30px",
               border: `1px solid ${theme.palette.borderColor.primary}`,
@@ -111,7 +104,11 @@ export default function Hero() {
             <img
               alt="Erick Anero"
               src="/assets/EA.png"
-              style={{ width: "100%", filter: "brightness(0.8)" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                filter: "brightness(0.8)",
+              }}
             />
           </Box>
         </Grid>
