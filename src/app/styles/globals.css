@@ -1,0 +1,120 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+/* 
+.east-sea {
+  font-family: "East Sea Dokdo", cursive;
+} */
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+.hero-container {
+  position: relative; /* Ensure fireflies are contained */
+  overflow: hidden; /* Prevent them from spilling outside */
+}
+
+.hero-container .firefly {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 10px 2px rgb(255, 255, 211);
+  pointer-events: none;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Generate 5 random movement styles */
+@keyframes move1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50vw, -50vh);
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50vw, 50vh);
+  }
+}
+
+@keyframes move3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(60vw, 60vh);
+  }
+}
+
+@keyframes move4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-40vw, -40vh);
+  }
+}
+
+@keyframes move5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(30vw, -30vh);
+  }
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 0;
+    box-shadow: 0 0 10px 2px rgb(255, 255, 211);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 15px 4px rgb(255, 255, 211);
+  }
+}
