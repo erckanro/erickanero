@@ -2,24 +2,20 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  IconButton,
+  // IconButton,
   Box,
-  useTheme,
 } from "@mui/material";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
+// import LightModeIcon from "@mui/icons-material/LightMode";
+// import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 interface NavBarProps {
   mode?: "light" | "dark";
   toggleTheme?: () => void;
 }
 
-export default function NavBar({ mode, toggleTheme }: NavBarProps) {
-  const theme = useTheme();
-
+export default function NavBar({ mode }: NavBarProps) {
   return (
     <AppBar
-      // position="sticky"
       sx={{
         top: 0,
         backgroundColor: mode === "dark" ? "#040613" : "#ffffff",
