@@ -4,6 +4,7 @@ import Projects from "./Projects";
 import Skills from "./Skills";
 import Contact from "./Contact";
 import Footer from "./FooterSection";
+import Timeline from "./TimeLine";
 
 export default function MyApp() {
   return (
@@ -11,6 +12,7 @@ export default function MyApp() {
       <main className={styles.main}>
         <Hero />
         <Projects />
+        <Timeline />
         <Skills />
         <Contact />
         <Footer />
