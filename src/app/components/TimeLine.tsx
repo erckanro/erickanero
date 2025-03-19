@@ -8,7 +8,7 @@ import {
   TimelineOppositeContent,
   TimelineDot,
 } from "@mui/lab";
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 
 type TimelineEntry = {
@@ -67,8 +67,6 @@ const timelineData: TimelineEntry[] = [
 ];
 
 export default function CustomizedTimeline() {
-  const theme = useTheme();
-
   return (
     <Box
       id="recent-works"
