@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Typography } from "@mui/material";
+import Image from "next/image";
 
 const skills = [
   {
@@ -63,13 +64,12 @@ export default function Skills() {
       id="skills"
       sx={{
         py: 10,
-        px: 2,
         background: "#0C182E",
         textAlign: "center",
       }}
     >
       <Typography
-        variant="h4"
+        variant="h3"
         gutterBottom
         sx={{
           background: "linear-gradient(to right, #37fffb, #ffffff)",
@@ -80,7 +80,7 @@ export default function Skills() {
       >
         Technical Skills
       </Typography>
-      <Typography mb={5} maxWidth={600} mx="auto">
+      <Typography mb={5} px={1} maxWidth={600} mx="auto">
         Equipped with expertise in modern development tools and frameworks to
         bring innovative ideas to life with precision and performance.
       </Typography>
@@ -99,12 +99,17 @@ export default function Skills() {
           <Box
             key={skill.name}
             sx={{
-              width: { xs: "90px", sm: "100px", md: "130px" }, // xs=2 per row, sm=3 per row, md=4 per row
+              width: { xs: 70, sm: 100, md: 130 }, // xs=2 per row, sm=3 per row, md=4 per row
               textAlign: "center",
+              "& img": {
+                width: { xs: 60, sm: 90 },
+                height: { xs: 60, sm: 90 },
+              },
             }}
           >
-            <img
+            <Image
               src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-original.svg`}
+              alt={`${skill.icon} icon`}
               width={90}
               height={90}
             />

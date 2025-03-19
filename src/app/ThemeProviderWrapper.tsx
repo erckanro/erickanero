@@ -88,16 +88,26 @@ export default function ThemeProviderWrapper({
         typography: {
           fontFamily: roboto.style.fontFamily,
           h1: {
-            fontFamily: quicksand.style.fontFamily,
+            fontFamily: moiraiOne.style.fontFamily,
+            fontSize: "clamp(40px, 5vw, 48px)",
           },
           h2: {
             fontFamily: quicksand.style.fontFamily,
+            fontSize: "clamp(28px, 4.5vw, 40px)",
           },
           h3: {
-            fontFamily: moiraiOne.style.fontFamily,
+            fontFamily: quicksand.style.fontFamily,
+            fontSize: "clamp(22px, 4vw, 32px)",
           },
           h4: {
             fontFamily: quicksand.style.fontFamily,
+            fontSize: "clamp(20px, 3.5vw, 28px)",
+          },
+          h5: {
+            fontSize: "clamp(18px, 3vw, 24px)",
+          },
+          h6: {
+            fontSize: "lamp(17px, 2.5vw, 20px)",
           },
         },
         components: {

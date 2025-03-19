@@ -16,7 +16,7 @@ export default function Contact() {
       }}
     >
       <Typography
-        variant="h4"
+        variant="h3"
         gutterBottom
         sx={{
           background: "linear-gradient(to right, #37fffb, #ffffff)",

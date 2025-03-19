@@ -42,11 +42,10 @@ export default function Projects() {
         py: 10,
         textAlign: "center",
         background: "radial-gradient(at center, #0C182E, #000000)",
-        px: 2,
       }}
     >
       <Typography
-        variant="h4"
+        variant="h3"
         gutterBottom
         sx={{
           background: "linear-gradient(to right, #37fffb, #ffffff)",
@@ -57,7 +56,7 @@ export default function Projects() {
       >
         Recent Projects
       </Typography>
-      <Typography mb={5} maxWidth={600} mx="auto">
+      <Typography mb={5} px={1} maxWidth={600} mx="auto">
         I craft unique, high-performing web experiences that bring your vision
         to life and leave a lasting impact on your audience.
       </Typography>
@@ -68,9 +67,9 @@ export default function Projects() {
             xs={12}
             md={6}
             key={index}
-            padding={1}
             sx={{
               maxWidth: { xs: 500 },
+              p: 1,
             }}
           >
             <a

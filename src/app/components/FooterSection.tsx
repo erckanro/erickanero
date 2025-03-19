@@ -7,14 +7,11 @@ export default function Footer() {
       <Box
         id="footer"
         sx={{
-          pb: 10,
-          pt: 5,
-
-          // background: "#0C182E",
+          py: 5,
           textAlign: "center",
         }}
       >
-        <Typography variant="h3" fontWeight={700} color="#37fffb">
+        <Typography variant="h1" fontWeight={700} color="#37fffb">
           EA
         </Typography>
         <Box

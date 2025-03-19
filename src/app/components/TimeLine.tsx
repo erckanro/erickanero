@@ -76,11 +76,10 @@ export default function CustomizedTimeline() {
         py: 10,
         textAlign: "center",
         background: "radial-gradient(at center, #0C182E, #000000)",
-        px: 2,
       }}
     >
       <Typography
-        variant="h4"
+        variant="h3"
         gutterBottom
         sx={{
           background: "linear-gradient(to right, #37fffb, #ffffff)",
@@ -91,10 +90,10 @@ export default function CustomizedTimeline() {
       >
         Professional Journey
       </Typography>
-      <Typography mb={5} maxWidth={600} mx="auto">
+      <Typography mb={5} px={1} maxWidth={600} mx="auto">
         A journey of growth and innovation
       </Typography>
-      <Timeline position="alternate">
+      <Timeline position="alternate" sx={{ p: 0, maxWidth: 900, mx: "auto" }}>
         {timelineData.map(
           (
             {

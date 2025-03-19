@@ -1,6 +1,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --firefly-size: 4px;
+  --flash-color: rgba(255, 255, 180, 0.9);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -51,23 +53,97 @@ a {
   overflow: hidden; /* Prevent them from spilling outside */
 }
 
-.hero-container .firefly {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  opacity: 0;
-  box-shadow: 0 0 10px 2px rgb(255, 255, 211);
-  pointer-events: none;
-  transition: opacity 1s ease-in-out;
+:root {
+  --firefly-size: 4px;
 }
 
-/* Generate 5 random movement styles */
+.hero-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+}
+
+.firefly {
+  position: absolute;
+  width: var(--firefly-size);
+  height: var(--firefly-size);
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 180, 0.6);
+  animation: flash 3s ease-in-out infinite;
+}
+
+/* Random positions for each firefly */
+.firefly:nth-child(1) {
+  left: 10vw;
+  top: 20vh;
+  animation: move1 9s linear infinite, flash 2.8s ease-in-out infinite;
+}
+.firefly:nth-child(2) {
+  left: 50vw;
+  top: 80vh;
+  animation: move2 7s linear infinite, flash 3.2s ease-in-out infinite;
+}
+.firefly:nth-child(3) {
+  left: 70vw;
+  top: 50vh;
+  animation: move3 12s linear infinite, flash 3s ease-in-out infinite;
+}
+.firefly:nth-child(4) {
+  left: 30vw;
+  top: 10vh;
+  animation: move4 10s linear infinite, flash 2.5s ease-in-out infinite;
+}
+.firefly:nth-child(5) {
+  left: 80vw;
+  top: 60vh;
+  animation: move5 11s linear infinite, flash 3.5s ease-in-out infinite;
+}
+.firefly:nth-child(6) {
+  left: 20vw;
+  top: 30vh;
+  animation: move6 8s linear infinite, flash 3s ease-in-out infinite;
+}
+.firefly:nth-child(7) {
+  left: 60vw;
+  top: 90vh;
+  animation: move7 10s linear infinite, flash 3.2s ease-in-out infinite;
+}
+.firefly:nth-child(8) {
+  left: 40vw;
+  top: 40vh;
+  animation: move8 9.5s linear infinite, flash 2.8s ease-in-out infinite;
+}
+.firefly:nth-child(9) {
+  left: 90vw;
+  top: 20vh;
+  animation: move9 11.2s linear infinite, flash 3.3s ease-in-out infinite;
+}
+.firefly:nth-child(10) {
+  left: 15vw;
+  top: 70vh;
+  animation: move10 10.8s linear infinite, flash 3s ease-in-out infinite;
+}
+
+/* Randomized movement patterns */
 @keyframes move1 {
   0% {
     transform: translate(0, 0);
   }
+  25% {
+    transform: translate(20vw, -30vh);
+  }
+  50% {
+    transform: translate(-15vw, 25vh) scale(1.1);
+  }
+  75% {
+    transform: translate(30vw, -20vh) scale(0.9);
+  }
   100% {
-    transform: translate(50vw, -50vh);
+    transform: translate(-10vw, 40vh);
   }
 }
 
@@ -75,8 +151,11 @@ a {
   0% {
     transform: translate(0, 0);
   }
+  50% {
+    transform: translate(-25vw, 35vh) scale(1.2);
+  }
   100% {
-    transform: translate(-50vw, 50vh);
+    transform: translate(15vw, -40vh);
   }
 }
 
@@ -84,8 +163,11 @@ a {
   0% {
     transform: translate(0, 0);
   }
+  50% {
+    transform: translate(30vw, -25vh) scale(0.8);
+  }
   100% {
-    transform: translate(60vw, 60vh);
+    transform: translate(-20vw, 30vh);
   }
 }
 
@@ -93,8 +175,11 @@ a {
   0% {
     transform: translate(0, 0);
   }
+  50% {
+    transform: translate(-20vw, -30vh) scale(1.3);
+  }
   100% {
-    transform: translate(-40vw, -40vh);
+    transform: translate(25vw, 20vh);
   }
 }
 
@@ -102,19 +187,83 @@ a {
   0% {
     transform: translate(0, 0);
   }
+  50% {
+    transform: translate(15vw, 40vh) scale(1.1);
+  }
   100% {
-    transform: translate(30vw, -30vh);
+    transform: translate(-25vw, -20vh);
   }
 }
 
+@keyframes move6 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30vw, -35vh) scale(1.2);
+  }
+  100% {
+    transform: translate(20vw, 25vh);
+  }
+}
+
+@keyframes move7 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(25vw, 20vh) scale(1.1);
+  }
+  100% {
+    transform: translate(-15vw, -30vh);
+  }
+}
+
+@keyframes move8 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-25vw, 30vh) scale(0.9);
+  }
+  100% {
+    transform: translate(30vw, -25vh);
+  }
+}
+
+@keyframes move9 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20vw, -40vh) scale(1.1);
+  }
+  100% {
+    transform: translate(-30vw, 20vh);
+  }
+}
+
+@keyframes move10 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30vw, 25vh) scale(1.3);
+  }
+  100% {
+    transform: translate(15vw, -35vh);
+  }
+}
+
+/* Firefly glow effect */
 @keyframes flash {
   0%,
   100% {
-    opacity: 0;
-    box-shadow: 0 0 10px 2px rgb(255, 255, 211);
+    opacity: 0.3;
+    box-shadow: 0 0 10px 3px rgba(255, 255, 180, 0.5);
   }
   50% {
     opacity: 1;
-    box-shadow: 0 0 15px 4px rgb(255, 255, 211);
+    box-shadow: 0 0 20px 6px rgba(255, 255, 150, 0.9);
   }
 }

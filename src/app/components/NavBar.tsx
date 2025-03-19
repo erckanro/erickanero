@@ -26,7 +26,7 @@ export default function NavBar({ mode }: NavBarProps) {
         <Box
           sx={{ display: "flex", flexGrow: 1, alignItems: "center", gap: 2 }}
         >
-          <Typography variant="h3" fontWeight={700} color="#37fffb">
+          <Typography variant="h1" fontWeight={700} color="#37fffb">
             EA
           </Typography>
           <Typography
