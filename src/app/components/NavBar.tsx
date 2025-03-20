@@ -1,14 +1,10 @@
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  // IconButton,
-  Box,
-} from "@mui/material";
 // import LightModeIcon from "@mui/icons-material/LightMode";
 // import DarkModeIcon from "@mui/icons-material/DarkMode";
 
+import { AppBar, Toolbar, Typography, Box } from "@mui/material";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Link as ScrollLink } from "react-scroll";
 
 interface NavBarProps {
   mode?: "light" | "dark";
@@ -20,7 +16,7 @@ export default function NavBar({ mode }: NavBarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50); // Change state when scrolled past 50px
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -47,9 +43,15 @@ export default function NavBar({ mode }: NavBarProps) {
         <Box
           sx={{ display: "flex", flexGrow: 1, alignItems: "center", gap: 2 }}
         >
-          <Typography variant="h1" fontWeight={700} color="#37fffb">
-            EA
-          </Typography>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Typography variant="h1" fontWeight={700} color="#37fffb">
+              EA
+            </Typography>
+          </motion.div>
           <Typography
             variant="body1"
             sx={{ display: { xs: "none", sm: "block" } }}
@@ -57,11 +59,39 @@ export default function NavBar({ mode }: NavBarProps) {
             erickanero@gmail.com
           </Typography>
         </Box>
+
+        {/* Navigation Links with Smooth Scrolling */}
         <Box sx={{ display: "flex", gap: 2 }}>
-          <a href="#">About</a>
-          <a href="#recent-works">Portfolio</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
+          {[
+            { name: "About", to: "hero" },
+            { name: "Portfolio", to: "recent-works" },
+            { name: "Skills", to: "skills" },
+            { name: "Contact", to: "contact" },
+          ].map((item, index) => (
+            <motion.div
+              key={item.to}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.3 }}
+            >
+              <ScrollLink
+                to={item.to}
+                smooth={true}
+                duration={800}
+                offset={-70} // Adjust for sticky headers
+                spy={true}
+                style={{
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  color: "inherit",
+                }}
+              >
+                {item.name}
+              </ScrollLink>
+            </motion.div>
+          ))}
         </Box>
       </Toolbar>
     </AppBar>

@@ -7,6 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const HeroContainer = styled(Box)(({ theme }) => ({
   position: "relative",
@@ -38,21 +39,27 @@ interface StatCardProps {
 }
 
 const StatCard = ({ value, label }: StatCardProps) => (
-  <Box
-    sx={{
-      display: "flex",
-      flexDirection: { xs: "column", sm: "row" },
-      maxWidth: 100,
-      gap: { xs: 1, sm: 2 },
-      alignItems: "center",
-      textAlign: "center",
-    }}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.5 }}
   >
-    <Typography variant="h2" fontWeight={700}>
-      {value}
-    </Typography>
-    <Typography variant="body2">{label}</Typography>
-  </Box>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: { xs: "column", sm: "row" },
+        maxWidth: 100,
+        gap: { xs: 1, sm: 2 },
+        alignItems: "center",
+        textAlign: "center",
+      }}
+    >
+      <Typography variant="h2" fontWeight={700}>
+        {value}
+      </Typography>
+      <Typography variant="body2">{label}</Typography>
+    </Box>
+  </motion.div>
 );
 
 const Fireflies = () => {
@@ -85,6 +92,7 @@ export default function Hero() {
     <HeroContainer>
       <Fireflies />
       <Grid
+        id="hero"
         container
         maxWidth="lg"
         spacing={2}
@@ -97,82 +105,104 @@ export default function Hero() {
           md={5}
           sx={{ display: { xs: "flex", sm: "flex" }, justifyContent: "start" }}
         >
-          <Box
-            sx={{
-              width: { xs: 250, sm: 300, md: 400 },
-              maxWidth: "700px",
-              borderRadius: "50px",
-              padding: "30px 30px 0 30px",
-              border: `1px solid ${theme.palette.borderColor.primary}`,
-              background: `${theme.palette.imageGradient.primary}`,
-              boxShadow: "0 0 15px cyan",
-              overflow: "hidden",
-              "& img": {
-                filter: "brightness(0.8)",
-                transform: { xs: "scale(1.5)", md: "scale(1)" },
-                transformOrigin: "top center",
-              },
-            }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            <Image
-              alt="Erick Anero"
-              src="/assets/EA.png"
-              width={700}
-              height={500}
-              style={{ width: "100%", height: "auto" }}
-            />
-          </Box>
+            <Box
+              sx={{
+                width: { xs: 250, sm: 300, md: 400 },
+                maxWidth: "700px",
+                borderRadius: "50px",
+                padding: "30px 30px 0 30px",
+                border: `1px solid ${theme.palette.borderColor.primary}`,
+                background: `${theme.palette.imageGradient.primary}`,
+                boxShadow: "0 0 15px cyan",
+                overflow: "hidden",
+                "& img": {
+                  filter: "brightness(0.8)",
+                  transform: { xs: "scale(1.5)", md: "scale(1)" },
+                  transformOrigin: "top center",
+                },
+              }}
+            >
+              <Image
+                alt="Erick Anero"
+                src="/assets/EA.png"
+                width={700}
+                height={500}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </Box>
+          </motion.div>
         </Grid>
         <Grid item xs={12} md={7}>
-          <Box sx={{ display: "flex", alignItems: "end", gap: 2 }}>
-            <Box>
-              <Typography variant="h4" fontWeight={500}>
-                Erick Anero
-              </Typography>
-              <Typography
-                variant="h2"
-                fontWeight={700}
-                sx={{
-                  background:
-                    "linear-gradient(to right, #0d7fb4, #37fffb, #ffffff)",
-                  backgroundClip: "text",
-                  textFillColor: "transparent",
-                }}
-              >
-                Frontend Developer
-              </Typography>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <Box sx={{ display: "flex", alignItems: "end", gap: 2 }}>
+              <Box>
+                <Typography variant="h4" fontWeight={500}>
+                  Erick Anero
+                </Typography>
+                <Typography
+                  variant="h2"
+                  fontWeight={700}
+                  sx={{
+                    background:
+                      "linear-gradient(to right, #0d7fb4, #37fffb, #ffffff)",
+                    backgroundClip: "text",
+                    textFillColor: "transparent",
+                  }}
+                >
+                  Frontend Developer
+                </Typography>
+              </Box>
             </Box>
-          </Box>
 
-          <Typography variant="body1" color="text.secondary">
-            Bridging creativity and technology to craft seamless, user-centric
-            web experiences.
-          </Typography>
+            <Typography variant="body1" color="text.secondary">
+              Bridging creativity and technology to craft seamless, user-centric
+              web experiences.
+            </Typography>
 
-          <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
-            <a href="https://www.linkedin.com/in/erickanero/">
-              <Button
-                variant="outlined"
-                sx={{
-                  border: `1px solid ${theme.palette.borderColor.primary}`,
-                }}
+            <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
+              <motion.a
+                href="https://www.linkedin.com/in/erickanero/"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <LinkedInIcon
-                  sx={{ color: theme.palette.borderColor.primary }}
-                />
-              </Button>
-            </a>
-            <a href="https://github.com/erckanro">
-              <Button
-                variant="outlined"
-                sx={{
-                  border: `1px solid ${theme.palette.borderColor.primary}`,
-                }}
+                <Button
+                  variant="outlined"
+                  sx={{
+                    border: `1px solid ${theme.palette.borderColor.primary}`,
+                  }}
+                >
+                  <LinkedInIcon
+                    sx={{ color: theme.palette.borderColor.primary }}
+                  />
+                </Button>
+              </motion.a>
+              <motion.a
+                href="https://github.com/erckanro"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <GitHubIcon sx={{ color: theme.palette.borderColor.primary }} />
-              </Button>
-            </a>
-          </Box>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    border: `1px solid ${theme.palette.borderColor.primary}`,
+                  }}
+                >
+                  <GitHubIcon
+                    sx={{ color: theme.palette.borderColor.primary }}
+                  />
+                </Button>
+              </motion.a>
+            </Box>
+          </motion.div>
         </Grid>
       </Grid>
 

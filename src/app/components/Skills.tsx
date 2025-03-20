@@ -2,61 +2,39 @@
 
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const skills = [
-  {
-    name: "React",
-    icon: "react",
-  },
-  {
-    name: "Next.js",
-    icon: "nextjs",
-  },
-  {
-    name: "TypeScript",
-    icon: "typescript",
-  },
-  {
-    name: "JavaScript",
-    icon: "javascript",
-  },
-  {
-    name: "HTML",
-    icon: "html5",
-  },
-  {
-    name: "CSS",
-    icon: "css3",
-  },
-  {
-    name: "MUI",
-    icon: "materialui",
-  },
-  {
-    name: "Ant Design",
-    icon: "antdesign",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: "tailwindcss",
-  },
-  {
-    name: "Node.js",
-    icon: "nodejs",
-  },
-  {
-    name: "Bootstrap",
-    icon: "bootstrap",
-  },
-  {
-    name: "Git",
-    icon: "git",
-  },
-  {
-    name: "Photoshop",
-    icon: "photoshop",
-  },
+  { name: "React", icon: "react" },
+  { name: "Next.js", icon: "nextjs" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "JavaScript", icon: "javascript" },
+  { name: "HTML", icon: "html5" },
+  { name: "CSS", icon: "css3" },
+  { name: "MUI", icon: "materialui" },
+  { name: "Ant Design", icon: "antdesign" },
+  { name: "Tailwind CSS", icon: "tailwindcss" },
+  { name: "Node.js", icon: "nodejs" },
+  { name: "Bootstrap", icon: "bootstrap" },
+  { name: "Git", icon: "git" },
+  { name: "Photoshop", icon: "photoshop" },
 ];
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Delay between each skill
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 export default function Skills() {
   return (
@@ -68,6 +46,7 @@ export default function Skills() {
         textAlign: "center",
       }}
     >
+      {/* Title */}
       <Typography
         variant="h3"
         gutterBottom
@@ -84,40 +63,46 @@ export default function Skills() {
         Equipped with expertise in modern development tools and frameworks to
         bring innovative ideas to life with precision and performance.
       </Typography>
-      <Box
-        sx={{
+
+      {/* Skills Grid */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the component is visible
+        style={{
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          gap: 2,
+          gap: 20,
           maxWidth: 900,
-          padding: 2,
-          mx: "auto",
+          padding: 16,
+          margin: "0 auto",
         }}
       >
         {skills.map((skill) => (
-          <Box
-            key={skill.name}
-            sx={{
-              width: { xs: 70, sm: 100, md: 130 }, // xs=2 per row, sm=3 per row, md=4 per row
-              textAlign: "center",
-              "& img": {
-                width: { xs: 60, sm: 90 },
-                height: { xs: 60, sm: 90 },
-              },
-            }}
-          >
-            <Image
-              src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-original.svg`}
-              alt={`${skill.icon} icon`}
-              width={90}
-              height={90}
-            />
-
-            <Typography>{skill.name}</Typography>
-          </Box>
+          <motion.div key={skill.name} variants={itemVariants}>
+            <Box
+              sx={{
+                width: { xs: 70, sm: 100, md: 130 },
+                textAlign: "center",
+                "& img": {
+                  width: { xs: 60, sm: 90 },
+                  height: { xs: 60, sm: 90 },
+                },
+              }}
+            >
+              <Image
+                src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-original.svg`}
+                alt={`${skill.icon} icon`}
+                width={90}
+                height={90}
+              />
+              <Typography>{skill.name}</Typography>
+            </Box>
+          </motion.div>
         ))}
-      </Box>
+      </motion.div>
     </Box>
   );
 }

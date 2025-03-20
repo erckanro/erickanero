@@ -1,4 +1,5 @@
 import * as React from "react";
+import { motion } from "framer-motion";
 import {
   Timeline,
   TimelineItem,
@@ -29,6 +30,10 @@ type TimelineEntry = {
     | "grey";
   variant?: "filled" | "outlined";
 };
+
+// Motion-wrapped TimelineDot
+const MotionTimelineDot = motion(TimelineDot);
+const MotionTimelineItem = motion(TimelineItem);
 
 const timelineData: TimelineEntry[] = [
   {
@@ -106,8 +111,12 @@ export default function CustomizedTimeline() {
             },
             index
           ) => (
-            <TimelineItem
+            <MotionTimelineItem
               key={index}
+              transition={{ type: "spring", stiffness: 100 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               sx={{
                 flexDirection: { xs: "column", sm: "row" },
                 textAlign: "left",
@@ -163,9 +172,15 @@ export default function CustomizedTimeline() {
                 }}
               >
                 {index > 0 && <TimelineConnector />}
-                <TimelineDot color={dotColor} variant={variant}>
+                <MotionTimelineDot
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 100 }}
+                  color={dotColor}
+                  variant={variant}
+                >
                   {icon}
-                </TimelineDot>
+                </MotionTimelineDot>
                 {index < timelineData.length - 1 && <TimelineConnector />}
               </TimelineSeparator>
 
@@ -196,7 +211,7 @@ export default function CustomizedTimeline() {
                   }}
                 />
               )}
-            </TimelineItem>
+            </MotionTimelineItem>
           )
         )}
       </Timeline>

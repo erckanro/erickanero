@@ -2,6 +2,7 @@
 
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -67,6 +68,11 @@ export default function Projects() {
             xs={12}
             md={6}
             key={index}
+            component={motion.div}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             sx={{
               maxWidth: { xs: 500 },
               p: 1,

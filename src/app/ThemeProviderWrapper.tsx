@@ -93,7 +93,7 @@ export default function ThemeProviderWrapper({
           },
           h2: {
             fontFamily: quicksand.style.fontFamily,
-            fontSize: "clamp(28px, 4.5vw, 40px)",
+            fontSize: "clamp(38px, 4.5vw, 40px)",
           },
           h3: {
             fontFamily: quicksand.style.fontFamily,
