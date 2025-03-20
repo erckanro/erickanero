@@ -8,18 +8,39 @@ import {
 // import LightModeIcon from "@mui/icons-material/LightMode";
 // import DarkModeIcon from "@mui/icons-material/DarkMode";
 
+import { useState, useEffect } from "react";
+
 interface NavBarProps {
   mode?: "light" | "dark";
   toggleTheme?: () => void;
 }
 
 export default function NavBar({ mode }: NavBarProps) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50); // Change state when scrolled past 50px
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <AppBar
+      elevation={0}
       sx={{
         top: 0,
-        backgroundColor: mode === "dark" ? "#040613" : "#ffffff",
+        backdropFilter: scrolled ? "blur(10px)" : "none",
+        backgroundColor: scrolled
+          ? mode === "dark"
+            ? "rgba(4, 6, 19, 0.8)"
+            : "rgba(255, 255, 255, 0.8)"
+          : "transparent",
+        transition: "background-color 0.3s ease, backdrop-filter 0.3s ease",
         padding: "10px 0",
+        boxShadow: "none",
       }}
     >
       <Toolbar>
@@ -36,16 +57,7 @@ export default function NavBar({ mode }: NavBarProps) {
             erickanero@gmail.com
           </Typography>
         </Box>
-
-        {/* <IconButton onClick={toggleTheme} color="inherit">
-          {mode === "light" ? <DarkModeIcon /> : <LightModeIcon />}
-        </IconButton> */}
-        <Box
-          sx={{
-            display: "flex",
-            gap: 2,
-          }}
-        >
+        <Box sx={{ display: "flex", gap: 2 }}>
           <a href="#">About</a>
           <a href="#recent-works">Portfolio</a>
           <a href="#skills">Skills</a>
