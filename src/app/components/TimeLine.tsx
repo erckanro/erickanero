@@ -122,12 +122,14 @@ export default function CustomizedTimeline() {
               <TimelineOppositeContent
                 sx={{
                   m: "auto 0",
-                  textAlign: "right",
+                  textAlign: { xs: "left", sm: "right" },
                   alignSelf: { xs: "start", sm: "inherit" },
                   justifyItems: { xs: "left", sm: "inherit" },
                 }}
               >
-                <Typography variant="h5">{company}</Typography>
+                <Typography variant="h5" gutterBottom>
+                  {company}
+                </Typography>
                 <Box
                   sx={{
                     display: "inline-flex",
