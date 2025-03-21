@@ -109,9 +109,11 @@ export default function Hero() {
           >
             <Box
               sx={{
-                // width: { xs: 250, sm: 300, md: 400 },
-                maxWidth: { xs: 250, sm: 300, md: 400, lg: 700 },
-                borderRadius: "50px",
+                maxWidth: { xs: 250, sm: 300, md: 400 },
+                borderRadius: { xs: "30px", sm: "40px" },
+                "@media (max-width: 320px)": {
+                  maxWidth: 200,
+                },
                 padding: "30px 30px 0 30px",
                 border: `1px solid ${theme.palette.borderColor.primary}`,
                 background: `${theme.palette.imageGradient.primary}`,
@@ -127,7 +129,7 @@ export default function Hero() {
               <Image
                 alt="Erick Anero"
                 src="/assets/EA.png"
-                width={700}
+                width={500}
                 height={500}
                 priority
                 quality={80}
@@ -163,7 +165,13 @@ export default function Hero() {
               </Box>
             </Box>
 
-            <Typography variant="body1" color="text.secondary">
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{
+                "@media (max-width: 320px)": { display: "none" },
+              }}
+            >
               Bridging creativity and technology to craft seamless, user-centric
               web experiences.
             </Typography>
@@ -209,6 +217,7 @@ export default function Hero() {
       <Box
         sx={{
           display: "flex",
+          "@media (max-width: 320px)": { display: "none" },
           justifyContent: { xs: "space-between", sm: "space-around" },
           width: "100%",
           marginTop: "auto",
