@@ -31,7 +31,6 @@ type TimelineEntry = {
   variant?: "filled" | "outlined";
 };
 
-// Motion-wrapped TimelineDot
 const MotionTimelineDot = motion(TimelineDot);
 const MotionTimelineItem = motion(TimelineItem);
 
@@ -76,7 +75,7 @@ export default function CustomizedTimeline() {
     <Box
       id="recent-works"
       sx={{
-        py: 10,
+        py: 5,
         textAlign: "center",
         background: "radial-gradient(at center, #0C182E, #000000)",
       }}
@@ -94,7 +93,7 @@ export default function CustomizedTimeline() {
         Professional Journey
       </Typography>
       <Typography mb={5} px={1} maxWidth={600} mx="auto">
-        A journey of growth and innovation
+        A journey of growth and innovation.
       </Typography>
       <Timeline position="alternate" sx={{ p: 0, maxWidth: 900, mx: "auto" }}>
         {timelineData.map(

@@ -40,7 +40,7 @@ export default function Projects() {
     <Box
       id="recent-works"
       sx={{
-        py: 10,
+        py: 5,
         textAlign: "center",
         background: "radial-gradient(at center, #0C182E, #000000)",
       }}

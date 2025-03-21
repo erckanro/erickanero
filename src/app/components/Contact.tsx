@@ -28,7 +28,7 @@ export default function Contact() {
         {`Let's Work Together!`}
       </Typography>
       <Typography mb={5} maxWidth={600} mx="auto">
-        {`Let's collaborate and build something amazing together`}
+        {`Let's collaborate and build something amazing.`}
       </Typography>
 
       <Box

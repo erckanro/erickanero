@@ -20,13 +20,12 @@ const skills = [
   { name: "Photoshop", icon: "photoshop" },
 ];
 
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // Delay between each skill
+      staggerChildren: 0.2,
     },
   },
 };
@@ -41,12 +40,11 @@ export default function Skills() {
     <Box
       id="skills"
       sx={{
-        py: 10,
+        py: 5,
         background: "#0C182E",
         textAlign: "center",
       }}
     >
-      {/* Title */}
       <Typography
         variant="h3"
         gutterBottom
