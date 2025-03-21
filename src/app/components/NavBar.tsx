@@ -142,7 +142,7 @@ export default function NavBar({ mode }: NavBarProps) {
         <List>
           {navItems.map((item, index) => (
             <ListItem
-              key={item.to}
+              key={index}
               onClick={handleDrawerToggle}
               sx={{ textAlign: "center" }}
             >
