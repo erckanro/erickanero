@@ -20,7 +20,7 @@ const HeroContainer = styled(Box)(({ theme }) => ({
   overflow: "hidden",
   background: theme.palette.hero.primary,
   color: theme.palette.mode === "dark" ? "#fff" : "#333",
-  padding: "0 16px",
+  padding: "64px 16px 0 16px",
 }));
 
 const FirefliesContainer = styled("div")({
@@ -95,16 +95,13 @@ export default function Hero() {
         id="hero"
         container
         maxWidth="lg"
-        spacing={2}
+        spacing={3}
         alignItems="center"
         justifyContent="center"
+        alignContent="center"
+        sx={{ flexGrow: 1 }}
       >
-        <Grid
-          item
-          xs={12}
-          md={5}
-          sx={{ display: { xs: "flex", sm: "flex" }, justifyContent: "start" }}
-        >
+        <Grid item xs={12} md={5}>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -112,8 +109,8 @@ export default function Hero() {
           >
             <Box
               sx={{
-                width: { xs: 250, sm: 300, md: 400 },
-                maxWidth: "700px",
+                // width: { xs: 250, sm: 300, md: 400 },
+                maxWidth: { xs: 250, sm: 300, md: 400, lg: 700 },
                 borderRadius: "50px",
                 padding: "30px 30px 0 30px",
                 border: `1px solid ${theme.palette.borderColor.primary}`,
@@ -121,7 +118,7 @@ export default function Hero() {
                 boxShadow: "0 0 15px cyan",
                 overflow: "hidden",
                 "& img": {
-                  filter: "brightness(0.8)",
+                  filter: "brightness(0.9) drop-shadow(0 0 100px cyan)",
                   transform: { xs: "scale(1.5)", md: "scale(1)" },
                   transformOrigin: "top center",
                 },
@@ -132,11 +129,14 @@ export default function Hero() {
                 src="/assets/EA.png"
                 width={700}
                 height={500}
+                priority
+                quality={80}
                 style={{ width: "100%", height: "auto" }}
               />
             </Box>
           </motion.div>
         </Grid>
+
         <Grid item xs={12} md={7}>
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -206,21 +206,20 @@ export default function Hero() {
         </Grid>
       </Grid>
 
-      <Grid
-        container
+      <Box
         sx={{
-          position: "absolute",
-          bottom: 0,
-          width: "100%",
+          display: "flex",
           justifyContent: { xs: "space-between", sm: "space-around" },
-          px: { xs: 0, sm: 3 },
-          py: { xs: 1, sm: 3 },
+          width: "100%",
+          marginTop: "auto",
+          paddingX: { xs: 0, sm: 3 },
+          paddingY: { xs: 1, sm: 3 },
         }}
       >
         <StatCard value="6+" label="Years of Experience" />
         <StatCard value="9+" label="Projects Completed" />
         <StatCard value="3" label="Awards Received" />
-      </Grid>
+      </Box>
     </HeroContainer>
   );
 }
