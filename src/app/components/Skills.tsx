@@ -92,7 +92,7 @@ export default function Skills() {
             >
               <Image
                 src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-original.svg`}
-                alt={`${skill.icon} icon`}
+                alt={`${skill.name} icon`}
                 width={90}
                 height={90}
               />

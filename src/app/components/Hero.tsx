@@ -70,6 +70,8 @@ const Fireflies = () => {
     const container = firefliesRef.current;
     if (!container) return;
 
+    const fireflies: HTMLDivElement[] = [];
+
     for (let i = 0; i < numFireflies; i++) {
       const firefly = document.createElement("div");
       firefly.className = "firefly";
@@ -80,7 +82,13 @@ const Fireflies = () => {
       firefly.style.setProperty("--y", `${Math.random() * 100}vh`);
 
       container.appendChild(firefly);
+      fireflies.push(firefly);
     }
+
+    return () => {
+      // Cleanup fireflies to avoid memory leaks
+      fireflies.forEach((firefly) => firefly.remove());
+    };
   }, []);
 
   return <FirefliesContainer ref={firefliesRef} />;
@@ -128,11 +136,12 @@ export default function Hero() {
             >
               <Image
                 alt="Erick Anero"
-                src="/assets/EA.png"
-                width={500}
-                height={500}
+                src="/assets/EA.webp"
+                width={400}
+                height={400}
                 priority
                 quality={80}
+                sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 400px"
                 style={{ width: "100%", height: "auto" }}
               />
             </Box>
@@ -147,17 +156,20 @@ export default function Hero() {
           >
             <Box sx={{ display: "flex", alignItems: "end", gap: 2 }}>
               <Box>
-                <Typography variant="h4" fontWeight={500}>
+                <Typography variant="h4" fontWeight={500} role="presentation">
                   Erick Anero
                 </Typography>
                 <Typography
                   variant="h2"
                   fontWeight={700}
+                  role="presentation"
                   sx={{
                     background:
                       "linear-gradient(to right, #0d7fb4, #37fffb, #ffffff)",
-                    backgroundClip: "text",
-                    textFillColor: "transparent",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    display: "inline-block",
+                    whiteSpace: "nowrap",
                   }}
                 >
                   Frontend Developer
@@ -179,11 +191,13 @@ export default function Hero() {
             <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
               <motion.a
                 href="https://www.linkedin.com/in/erickanero/"
+                aria-label="LinkedIn Profile"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
                   variant="outlined"
+                  aria-label="LinkedIn Profile"
                   sx={{
                     border: `1px solid ${theme.palette.borderColor.primary}`,
                   }}
@@ -195,11 +209,13 @@ export default function Hero() {
               </motion.a>
               <motion.a
                 href="https://github.com/erckanro"
+                aria-label="GitHub Profile"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
                   variant="outlined"
+                  aria-label="GitHub Profile"
                   sx={{
                     border: `1px solid ${theme.palette.borderColor.primary}`,
                   }}

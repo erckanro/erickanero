@@ -11,6 +11,7 @@ import {
 } from "@mui/lab";
 import { Box, Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
+import Image from "next/image";
 
 type TimelineEntry = {
   company: string;
@@ -147,8 +148,9 @@ export default function CustomizedTimeline() {
                 >
                   {skills.map((skill) => (
                     <Box key={skill}>
-                      <img
+                      <Image
                         src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill}/${skill}-original.svg`}
+                        alt={`${skill} icon`}
                         width={30}
                         height={30}
                       />

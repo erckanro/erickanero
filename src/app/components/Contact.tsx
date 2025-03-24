@@ -60,7 +60,7 @@ export default function Contact() {
             <LocationOnIcon />
             Manila, PHL.
           </Box>
-          <a href="mailto:erickanero@gmail.com">
+          <a aria-label="Email Account" href="mailto:erickanero@gmail.com">
             <Box
               sx={{
                 display: "flex",
@@ -72,7 +72,7 @@ export default function Contact() {
               erickanero@gmail.com
             </Box>
           </a>
-          <a href="tel:+639666715453">
+          <a aria-label="Mobile Number" href="tel:+639666715453">
             <Box
               sx={{
                 display: "flex",
@@ -92,7 +92,10 @@ export default function Contact() {
             alignItems: "center",
           }}
         >
-          <a href="viber://chat?number=+639666715453">
+          <a
+            aria-label="Viber Account"
+            href="viber://chat?number=+639666715453"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
@@ -106,7 +109,7 @@ export default function Contact() {
             </svg>
           </a>
 
-          <a href="https://wa.me/639666715453">
+          <a aria-label="Whatsapp Account" href="https://wa.me/639666715453">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 258 256"
@@ -150,7 +153,10 @@ export default function Contact() {
             </svg>
           </a>
 
-          <a href="https://www.linkedin.com/in/erickanero/">
+          <a
+            aria-label="Linkedin Profile"
+            href="https://www.linkedin.com/in/erickanero/"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 128 128"
@@ -168,7 +174,10 @@ export default function Contact() {
             </svg>
           </a>
 
-          <a href=" https://www.instagram.com/erckanro/?hl=en">
+          <a
+            aria-label="Instagram Account"
+            href=" https://www.instagram.com/erckanro/?hl=en"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 256 256"

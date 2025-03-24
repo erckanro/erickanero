@@ -86,6 +86,7 @@ export default function NavBar({ mode }: NavBarProps) {
             </Typography>
           </Box>
 
+          {/* Desktop Navigation */}
           <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
             {navItems.map((item, index) => (
               <motion.div
@@ -102,6 +103,7 @@ export default function NavBar({ mode }: NavBarProps) {
                   duration={800}
                   offset={-70}
                   spy={true}
+                  href={`#${item.to}`} // Keeps SEO-friendly behavior
                   style={{
                     cursor: "pointer",
                     textDecoration: "none",
@@ -114,6 +116,7 @@ export default function NavBar({ mode }: NavBarProps) {
             ))}
           </Box>
 
+          {/* Mobile Menu Button */}
           <IconButton
             onClick={handleDrawerToggle}
             sx={{ display: { xs: "block", sm: "none" }, color: "inherit" }}
@@ -123,6 +126,7 @@ export default function NavBar({ mode }: NavBarProps) {
         </Toolbar>
       </AppBar>
 
+      {/* Mobile Drawer Menu */}
       <Drawer
         anchor="right"
         open={mobileOpen}
@@ -152,6 +156,7 @@ export default function NavBar({ mode }: NavBarProps) {
                 duration={800}
                 offset={-70}
                 spy={true}
+                href={`#${item.to}`} // Keeps anchor behavior
                 style={{
                   cursor: "pointer",
                   textDecoration: "none",
